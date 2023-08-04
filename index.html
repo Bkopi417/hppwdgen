@@ -399,7 +399,7 @@
       for (let i = 0; i < 10; i++) {
         const word = getRandomWord();
         const leetWord = toLeetSpeak(word);
-        const password = leetWord + "@", "!", "#", "/", "*", "+", "-"; // Speciális karakterek hozzáadása
+        const password = leetWord + "@%/+-!"; // Speciális karakterek hozzáadása
         passwords.push(password);
         originalWords.push(word);
       }
