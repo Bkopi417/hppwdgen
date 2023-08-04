@@ -371,7 +371,6 @@
         "Volt-nincs_szekreny",
         "Varazsszem_Radio",
     ];
-
     // Függvény, ami véletlenszerűen választ egy elemet a szólistából
     function getRandomWord() {
       const randomIndex = Math.floor(Math.random() * wordList.length);
@@ -392,16 +391,26 @@
       return word.replace(/[aeiost]/gi, (match) => leetMap[match.toLowerCase()] || match);
     }
 
+    // Függvény, ami véletlenszerűen választ egy speciális karaktert
+    function getRandomSpecialCharacter() {
+      const specialCharacters = "@%/+-!";
+      const randomIndex = Math.floor(Math.random() * specialCharacters.length);
+      return specialCharacters[randomIndex];
+    }
+
     // Függvény, ami generál 10 jelszót és kiírja az eredeti szavakat is
     function generatePasswords() {
       const passwords = [];
       const originalWords = [];
       for (let i = 0; i < 10; i++) {
-        const word = getRandomWord();
-        const leetWord = toLeetSpeak(word);
-        const password = leetWord + "@%/+-!"; // Speciális karakterek hozzáadása
+        const word1 = getRandomWord();
+        const word2 = getRandomWord();
+        const leetWord1 = toLeetSpeak(word1);
+        const leetWord2 = toLeetSpeak(word2);
+        const specialCharacter = getRandomSpecialCharacter(); // Véletlenszerű speciális karakter
+        const password = leetWord1 + specialCharacter + leetWord2; // Két szóból álló jelszó
         passwords.push(password);
-        originalWords.push(word);
+        originalWords.push(word1 + " " + word2); // Az eredeti szavak két szóból állnak
       }
       return { passwords, originalWords };
     }
