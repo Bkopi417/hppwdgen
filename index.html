@@ -405,18 +405,12 @@
       for (let i = 0; i < 10; i++) {
         const word1 = getRandomWord();
         const word2 = getRandomWord();
-        const word3 = getRandomWord();
-        const word4 = getRandomWord();
-        const word5 = getRandomWord();
         const leetWord1 = toLeetSpeak(word1);
         const leetWord2 = toLeetSpeak(word2);
-        const leetWord1 = toLeetSpeak(word3);
-        const leetWord2 = toLeetSpeak(word4);
-        const leetWord1 = toLeetSpeak(word5);
         const specialCharacter = getRandomSpecialCharacter(); // Véletlenszerű speciális karakter
-        const password = leetWord1 + specialCharacter + leetWord2 + specialCharacter + leetWord3 + specialCharacter + leetWord4 + specialCharacter + leetWord5; // Öt szóból álló jelszó
+        const password = leetWord1 + specialCharacter + leetWord2; // Két szóból álló jelszó
         passwords.push(password);
-        originalWords.push(word1 + " " + word2 + " " + word3 + " " + word4 + " " word5); // Az eredeti szavak két szóból állnak
+        originalWords.push(word1 + " " + word2); // Az eredeti szavak két szóból állnak
       }
       return { passwords, originalWords };
     }
@@ -427,7 +421,7 @@
     const passwordsOutput = document.getElementById("passwordsOutput");
     passwordsOutput.textContent = "Generált jelszavak és az eredeti szavak:\n";
     for (let i = 0; i < passwords.length; i++) {
-      passwordsOutput.textContent += `${i + 4}. ${passwords[i]} (${originalWords[i]})\n`;
+      passwordsOutput.textContent += `${i + 1}. ${passwords[i]} (${originalWords[i]})\n`;
     }
   </script>
 </body>
