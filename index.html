@@ -410,7 +410,7 @@
         const specialCharacter = getRandomSpecialCharacter(); // Véletlenszerű speciális karakter
         const password = leetWord1 + specialCharacter + leetWord2; // Két szóból álló jelszó
         passwords.push(password);
-        originalWords.push(word1 + " " + word2); // Az eredeti szavak két szóból állnak
+        originalWords.push(word1 + " "); // Az eredeti szavak két szóból állnak
       }
       return { passwords, originalWords };
     }
